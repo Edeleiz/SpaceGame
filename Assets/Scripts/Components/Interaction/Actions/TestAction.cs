@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestAction : MonoBehaviour {
+[CreateAssetMenu(fileName = "TestAction", menuName = "My Components/Actions/Test", order = 1)]
+public class TestAction : BaseAction
+{
+    public override bool Check(GameObject target)
+    {
+        return true;
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Apply(GameObject target)
+    {
+        Debug.Log("Test Action!");
+    }
 }

@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAction : MonoBehaviour {
+public class BaseAction : ScriptableObject
+{
+    [HideInInspector]
+    public InteractiveObject owner;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public virtual bool Check(GameObject target)
+    {
+        return false;
+    }
+
+    public virtual void Apply(GameObject target)
+    {
+        
+    }
 }

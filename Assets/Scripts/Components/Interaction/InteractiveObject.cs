@@ -5,11 +5,28 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
     public BaseAction action;
-
-	// Use this for initialization
-	void Start ()
+    public BaseAction actionProperty
     {
-		
+        get { return action; }
+        set
+        {
+            if (action)
+                action.owner = null;
+
+            action = value;
+
+            if (action)
+                action.owner = this;
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        action.owner = this;
+
+        var trigger = GetComponentInChildren<TriggerController>();
+        trigger.owner = this.gameObject;
 	}
 	
 	// Update is called once per frame
@@ -17,4 +34,18 @@ public class InteractiveObject : MonoBehaviour
     {
 		
 	}
+
+    public void Interact(GameObject target)
+    {
+        if (!action)
+            return;
+
+        if (action.Check(target))
+            action.Apply(target);
+    }
+
+    private void OnDestroy()
+    {
+        actionProperty = null;
+    }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMovingBehaviour : UnityEngine.ScriptableObject
+public class BaseMovingBehaviour : ScriptableObject
 {
     protected static void BasicMovement(Rigidbody2D target, Vector3 direction, float speed)
     {

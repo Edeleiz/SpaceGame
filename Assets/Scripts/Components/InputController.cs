@@ -7,6 +7,8 @@ public class InputController : MonoBehaviour
     private static InputController instance;
 
     protected MoveableObject moveableObject;
+    protected InteractionController interactionController;
+    protected GameObject owner;
 
 	// Use this for initialization
 	void Start ()
@@ -15,13 +17,16 @@ public class InputController : MonoBehaviour
             instance.dispose();
         instance = this;
 
+        owner = this.gameObject;
         moveableObject = GetComponent<MoveableObject>();
-	}
+        interactionController = GetComponent<InteractionController>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
         UpdateMove();
+        UpdateInteractive();
     }
 
     protected void UpdateMove()
@@ -42,6 +47,15 @@ public class InputController : MonoBehaviour
 
         if (tryMove != Vector3.zero)
             moveableObject.Move(tryMove);
+    }
+
+    protected void UpdateInteractive()
+    {
+        if (!interactionController || !interactionController.interactionTarget)
+            return;
+
+        if (Input.GetKeyUp(KeyCode.Space))
+            interactionController.interactionTarget.Interact(interactionController.gameObject);
     }
 
     protected void dispose()
