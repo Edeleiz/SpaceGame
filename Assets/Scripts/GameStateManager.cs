@@ -28,8 +28,8 @@ public class GameStateManager : MonoBehaviour {
         {
             playerRespawnPoint = startPoint.transform.position;
             //startPoint.LevelStarted();
+            Instantiate(playerPrefab, playerRespawnPoint, playerPrefab.transform.rotation);
         }
-        Instantiate(playerPrefab, playerRespawnPoint, playerPrefab.transform.rotation);
     }
 }
 
