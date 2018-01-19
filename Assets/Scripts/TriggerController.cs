@@ -7,15 +7,11 @@ public class TriggerController : MonoBehaviour
     [HideInInspector]
     public GameObject owner;
 
-    // Use this for initialization
-    void Start ()
+    public BaseAction action;
+
+    void OnTriggerEnter2D(Collider2D collider)
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+        if (action && action.Check(collider.gameObject))
+            action.Apply(gameObject);
+    }
 }
