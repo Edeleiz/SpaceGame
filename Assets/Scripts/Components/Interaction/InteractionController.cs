@@ -44,4 +44,9 @@ public class InteractionController : MonoBehaviour
         isInteracted = false;
         interactionTarget = null;
     }
+
+    protected virtual void OnDestroy()
+    {
+        interactionTarget = null;
+    }
 }

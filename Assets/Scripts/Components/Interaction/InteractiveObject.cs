@@ -26,7 +26,8 @@ public class InteractiveObject : MonoBehaviour
         action.owner = this;
 
         var trigger = GetComponentInChildren<TriggerController>();
-        trigger.owner = this.gameObject;
+        if (trigger)
+            trigger.owner = this.gameObject;
 	}
 	
 	// Update is called once per frame
@@ -44,7 +45,7 @@ public class InteractiveObject : MonoBehaviour
             action.Apply(target);
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         actionProperty = null;
     }

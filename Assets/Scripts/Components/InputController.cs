@@ -62,4 +62,11 @@ public class InputController : MonoBehaviour
     {
         Destroy(this);
     }
+
+    protected virtual void OnDestroy()
+    {
+        owner = null;
+        moveableObject = null;
+        interactionController = null;
+    }
 }

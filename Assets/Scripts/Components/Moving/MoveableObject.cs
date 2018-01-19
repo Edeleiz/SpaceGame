@@ -33,4 +33,10 @@ public class MoveableObject : MonoBehaviour
         behaviour.target = _target;
         behaviour.Move(direction);
     }
+
+    private void OnDestroy()
+    {
+        behaviour = null;
+        _target = null;
+    }
 }

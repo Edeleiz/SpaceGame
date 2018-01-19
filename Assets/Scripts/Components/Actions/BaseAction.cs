@@ -16,4 +16,9 @@ public class BaseAction : ScriptableObject
     {
         
     }
+
+    protected virtual void OnDestroy()
+    {
+        owner = null;
+    }
 }

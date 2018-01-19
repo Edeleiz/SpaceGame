@@ -14,4 +14,10 @@ public class TriggerController : MonoBehaviour
         if (action && action.Check(collider.gameObject))
             action.Apply(gameObject);
     }
+
+    protected virtual void OnDestroy()
+    {
+        owner = null;
+        action = null;
+    }
 }

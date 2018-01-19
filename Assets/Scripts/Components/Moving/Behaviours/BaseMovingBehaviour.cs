@@ -36,9 +36,8 @@ public class BaseMovingBehaviour : ScriptableObject
 	public void Update ()
     {
         if (target == null)
-        {
             return;
-        }
+
         UpdateMove();
         isMoving = false;
         _direction = Vector3.zero;
@@ -53,5 +52,11 @@ public class BaseMovingBehaviour : ScriptableObject
     protected virtual void UpdateMove()
     {
 
+    }
+
+    protected virtual void OnDestroy()
+    {
+        target = null;
+        _direction = Vector3.zero;
     }
 }
