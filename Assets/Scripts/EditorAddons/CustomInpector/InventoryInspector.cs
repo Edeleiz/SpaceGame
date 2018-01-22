@@ -6,36 +6,54 @@ using UnityEditor;
 
 namespace Inspectors
 {
-    [CustomEditor(typeof(InventoryObject))]
+    //[CustomEditor(typeof(InventoryObject))]
     public class InventoryInspector : Editor
     {
+        private static Dictionary<BaseItem, int> itemsToSave;
         private Dictionary<BaseItem, int> itemsDictionary;
+
+        private static Rect buttonRect = new Rect(0, 0, 100, 17);
 
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            var inventory = (InventoryObject)target;
-            itemsDictionary = inventory.items;
-            
-            var rnd = 6;
-            var reservedRect = GUILayoutUtility.GetRect(400, 300);//.Button(buttonRect, rnd.ToString() + " num");
-            var buttonRect = new Rect(reservedRect);
-            buttonRect.height = 30;
-            buttonRect.width = 100;
+            if (itemsToSave == null)
+                itemsToSave = new Dictionary<BaseItem, int>();
 
-            for (var i = 0; i < rnd; i++)
+            var inventory = (Inventory)target;
+            //itemsDictionary = itemsDictionary ?? new Dictionary<BaseItem, int>(InventoryObject.GetInitialItems(inventory));
+            
+            var len = itemsDictionary.Count;
+            var reservedRect = GUILayoutUtility.GetRect(400, len * 27 + 54);
+            buttonRect.x = reservedRect.x;
+            buttonRect.y = reservedRect.y;
+
+            //if (GUI.Button(buttonRect, "Save items"))
+                //InventoryObject.SetInitialItems(inventory, itemsToSave);
+            buttonRect.y += 17 + 10;
+
+            foreach (var itemPair in itemsDictionary)
             {
-                GUI.Button(buttonRect, rnd + " num");
-                buttonRect.y += 50;
+                DrawProperty(buttonRect, itemPair.Key, itemPair.Value);
+                buttonRect.y += 17 + 10;
             }
+
+            if (GUI.Button(buttonRect, "Add item"))
+                itemsDictionary[ScriptableObject.CreateInstance<BaseItem>()] = 0;
         }
 
         private void DrawProperty(Rect rect, BaseItem property, int count = 1)
         {
             var countRect = new Rect(rect);
             countRect.x += rect.width + 20;
-            itemsDictionary[(BaseItem)EditorGUI.ObjectField(rect, property, typeof(BaseItem), true)] = int.Parse(GUI.TextField(rect, count.ToString(), 10));
+            itemsToSave[(BaseItem)EditorGUI.ObjectField(rect, property, typeof(BaseItem), true)] = int.Parse(GUI.TextField(countRect, count.ToString(), 10));
+        }
+
+        private void OnDestroy()
+        {
+            itemsToSave = null;
+            Debug.Log("destriyed");
         }
     }
 }
