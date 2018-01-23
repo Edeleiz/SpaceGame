@@ -17,8 +17,18 @@ public class BaseAction : ScriptableObject
         
     }
 
+    public virtual object GetOptions()
+    {
+        return null;
+    }
+
     protected virtual void OnDestroy()
     {
         owner = null;
     }
 }
+
+[System.Serializable]
+public class ActionOptions
+{ }
+

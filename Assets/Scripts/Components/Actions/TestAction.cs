@@ -14,4 +14,23 @@ public class TestAction : BaseAction
     {
         Debug.Log("Test Action!");
     }
+
+    public override object GetOptions()
+    {
+        return new TestOptions();
+    }
 }
+
+[System.Serializable]
+class TestOptions : ActionOptions
+{
+    [SerializeField]
+    public int testInt;
+
+    [SerializeField]
+    public string testString;
+
+    [SerializeField]
+    public GameObject testObject;
+}
+

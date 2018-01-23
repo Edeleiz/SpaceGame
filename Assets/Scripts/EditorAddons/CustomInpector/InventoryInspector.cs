@@ -10,7 +10,7 @@ namespace Inspectors
     public class InventoryInspector : Editor
     {
         private static Dictionary<BaseItem, int> itemsToSave;
-        private Dictionary<BaseItem, int> itemsDictionary;
+        private Dictionary<BaseItem, int> itemsDictionary = null;
 
         private static Rect buttonRect = new Rect(0, 0, 100, 17);
 

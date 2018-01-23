@@ -181,6 +181,3 @@ public abstract class DictionaryDrawer<TK, TV> : PropertyDrawer
 
 [CustomPropertyDrawer(typeof(ItemsDicitonary))]
 public class ItemsDictionaryDrawer : DictionaryDrawer<BaseItem, int> { }
-
-//[CustomPropertyDrawer(typeof(MyDictionary2))]
-//public class MyDictionaryDrawer2 : DictionaryDrawer<KeyCode, GameObject> { }

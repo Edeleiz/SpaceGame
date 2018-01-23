@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
+    public ActionProperty actionNewTest;
+
     public BaseAction action;
     public BaseAction actionProperty
     {

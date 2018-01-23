@@ -250,9 +250,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 11400000, guid: 731fe479f6c7c2a48ac72590c7e257b5, type: 2}
     _Values: 03000000000000000a000000
-  oneItem: {fileID: 11400000, guid: 731fe479f6c7c2a48ac72590c7e257b5, type: 2}
-  twoItem: {fileID: 11400000, guid: c8060cf8f986f5d449eefb3d9579e563, type: 2}
-  threeItem: {fileID: 11400000, guid: 731fe479f6c7c2a48ac72590c7e257b5, type: 2}
 --- !u!114 &114868985980697966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6f0432ea555a745b7958d6c36af907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionNewTest:
+    action: {fileID: 11400000, guid: 9fbb25356ec10c145ae8cf00482cc0ef, type: 2}
   action: {fileID: 11400000, guid: 9fbb25356ec10c145ae8cf00482cc0ef, type: 2}
 --- !u!114 &114916095099009586
 MonoBehaviour:
@@ -289,9 +288,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     _Values: 000000000000000000000000
-  oneItem: {fileID: 0}
-  twoItem: {fileID: 0}
-  threeItem: {fileID: 0}
 --- !u!212 &212894858392413588
 SpriteRenderer:
   m_ObjectHideFlags: 1
