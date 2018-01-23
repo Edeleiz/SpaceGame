@@ -6,7 +6,13 @@ using UnityEngine;
 public class ActionProperty
 {
     public BaseAction action;
-    
-    [SerializeField]
-    public ActionOptions options;
+
+    private ActionOptions _options;
+    public ActionOptions options
+    {
+        get { return _options; }
+        set { _options = value; }
+    }
+
+    public ArrayList optionValues;
 }

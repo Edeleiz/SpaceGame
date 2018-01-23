@@ -87,10 +87,10 @@ public class ActionPropertyDrawer : PropertyDrawer
             return (T)field(rect, label, value);
 
         if (type.IsEnum)
-            return (T)(object)EditorGUI.EnumPopup(rect, (Enum)(object)value);
+            return (T)(object)EditorGUI.EnumPopup(rect, new GUIContent(label), (Enum)(object)value);
 
         if (typeof(UnityEngine.Object).IsAssignableFrom(type))
-            return (T)(object)EditorGUI.ObjectField(rect, (UnityEngine.Object)(object)value, type, true);
+            return (T)(object)EditorGUI.ObjectField(rect, new GUIContent(label), (UnityEngine.Object)(object)value, type, true);
 
         Debug.Log("Type is not supported: " + type);
         return value;
