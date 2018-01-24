@@ -10,7 +10,7 @@ public class ActionPropertyDrawer : PropertyDrawer
 {
     private ActionProperty _actionProperty;
     private BaseAction _action;
-    private object _options;
+    private ActionOptions _options;
 
     private bool _foldout = false;
     private Dictionary<string, System.Type> _optionsDict = new Dictionary<string, Type>();
@@ -20,10 +20,12 @@ public class ActionPropertyDrawer : PropertyDrawer
     {
         CheckInitialize(property, label);
         var totalHeight = 17.0f;
-        if (_options != null)
+        if (_action != null && _options != null)
+        {
             totalHeight += 17.0f;
-        if (_foldout)
-            totalHeight += (_optionsDict.Count) * 17f;
+            if (_foldout)
+                totalHeight += (_optionsDict.Count) * 17f;
+        }
         return totalHeight;
     }
 
@@ -38,7 +40,11 @@ public class ActionPropertyDrawer : PropertyDrawer
         {
             _action = action;
             if (!_action)
+            {
+                _actionProperty.action = null;
+                _actionProperty.options = null;
                 return;
+            }
 
             _options = _action.GetOptions();
 
@@ -47,7 +53,7 @@ public class ActionPropertyDrawer : PropertyDrawer
 
             CheckOptions();
         }
-        else if (_options != null)
+        else if (_action != null && _options != null)
         {
             position.y += 17;
             var foldoutRect = position;
@@ -74,10 +80,14 @@ public class ActionPropertyDrawer : PropertyDrawer
             var newVal = DoField(fieldRect, pair.Key, pair.Value, _optionValues[pair.Key]);
             if (EditorGUI.EndChangeCheck())
             {
+                var type = _options.GetType();
+                var prop = type.GetField(pair.Key);
 
+                prop.SetValue(_options, newVal);
             }
             fieldRect.y += 17.0f;
         }
+        _actionProperty.options = _options;
     }
 
     private static T DoField<T>(Rect rect, string label, Type type, T value)

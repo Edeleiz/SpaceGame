@@ -4,32 +4,34 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-    public ActionProperty actionNewTest;
+    [SerializeField]
+    public ActionProperty actionProperty;
 
-    public BaseAction action;
-    public BaseAction actionProperty
+    public BaseAction action
     {
-        get { return action; }
+        get { return actionProperty.action; }
         set
         {
-            if (action)
-                action.owner = null;
+            if (actionProperty.action)
+                actionProperty.action.owner = null;
 
-            action = value;
+            actionProperty.action = value;
 
-            if (action)
-                action.owner = this;
+            if (actionProperty.action)
+                actionProperty.action.owner = this;
         }
     }
 
     // Use this for initialization
     void Start ()
     {
-        action.owner = this;
+        //action.owner = this;
 
         var trigger = GetComponentInChildren<TriggerController>();
         if (trigger)
             trigger.owner = this.gameObject;
+
+        actionProperty.Initialize(this);
 	}
 	
 	// Update is called once per frame

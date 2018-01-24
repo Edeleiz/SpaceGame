@@ -17,7 +17,7 @@ public class BaseAction : ScriptableObject
         
     }
 
-    public virtual object GetOptions()
+    public virtual ActionOptions GetOptions()
     {
         return null;
     }

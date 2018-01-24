@@ -68,9 +68,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4300073942019060}
-  - component: {fileID: 114868985980697966}
   - component: {fileID: 114916095099009586}
   - component: {fileID: 114690819888800794}
+  - component: {fileID: 114118845219348980}
   m_Layer: 0
   m_Name: TestInteractiveObject
   m_TagString: Untagged
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701793675127832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: 0}
+  m_LocalPosition: {x: 1.5, y: 1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4968869739780578}
@@ -213,6 +213,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114118845219348980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1701793675127832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6f0432ea555a745b7958d6c36af907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionNewTest:
+    action: {fileID: 0}
+    _serializedOptions:
+      _Buckets: ffffffff0200000001000000
+      _HashCodes: fdb9362b7a58cf7a435bfb66
+      _Next: ffffffffffffffff00000000
+      _Count: 3
+      _Version: 7573
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - testInt
+      - __type__
+      - testString
+      _Values:
+      - 0
+      - TestOptions
+      - dsfsdf34
+    _serializedGameObjectOptions:
+      _Buckets: ffffffffffffffff00000000
+      _HashCodes: 719e265f0000000000000000
+      _Next: ffffffff0000000000000000
+      _Count: 1
+      _Version: 2080
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - testObject
+      - 
+      - 
+      _Values:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+  action: {fileID: 11400000, guid: 13ecad53c97684e41978f36c5972299c, type: 2}
 --- !u!114 &114400465650551640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,20 +296,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 11400000, guid: 731fe479f6c7c2a48ac72590c7e257b5, type: 2}
     _Values: 03000000000000000a000000
---- !u!114 &114868985980697966
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1701793675127832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6f0432ea555a745b7958d6c36af907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionNewTest:
-    action: {fileID: 11400000, guid: 9fbb25356ec10c145ae8cf00482cc0ef, type: 2}
-  action: {fileID: 11400000, guid: 9fbb25356ec10c145ae8cf00482cc0ef, type: 2}
 --- !u!114 &114916095099009586
 MonoBehaviour:
   m_ObjectHideFlags: 1

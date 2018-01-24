@@ -15,7 +15,7 @@ public class TestAction : BaseAction
         Debug.Log("Test Action!");
     }
 
-    public override object GetOptions()
+    public override ActionOptions GetOptions()
     {
         return new TestOptions();
     }
