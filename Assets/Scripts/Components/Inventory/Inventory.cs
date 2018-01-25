@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable] public class ItemsDicitonary : SerializableDictionary<BaseItem, int> { }
+[System.Serializable] public class ItemsDicitonary : SerializableDictionary<BaseItem, int> { public ItemsDicitonary(ItemsDicitonary dict = null) : base(dict) { }
+                                                                                             public ItemsDicitonary() : base() { } }
 
 public class Inventory : MonoBehaviour
 {
@@ -36,9 +37,18 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public bool Removetem(BaseItem item)
+    public bool AddItems(ItemsDicitonary items)
     {
-        RemoveItem(item, 1);
+        foreach (var pair in items)
+            AddItem(pair.Key, pair.Value);
+
+        return true;
+    }
+
+    public bool Removetem(BaseItem item, bool removeAll = false)
+    {
+        var count = removeAll ? GetItemCount(item) : 1;
+        RemoveItem(item, count);
         return true;
     }
 
@@ -60,6 +70,19 @@ public class Inventory : MonoBehaviour
         return items[item];
     }
 
+    public ItemsDicitonary GetItemsDictionary()
+    {
+        var result = new ItemsDicitonary(items);
+        return result;
+    }
+
+    public ItemsDicitonary TakeItems()
+    {
+        var items = GetItemsDictionary();
+        ClearItems();
+        return items;
+    }
+
     public List<BaseItem> GetItems()
     {
         if (_itemsList != null)
@@ -73,6 +96,11 @@ public class Inventory : MonoBehaviour
         }
 
         return _itemsList;
+    }
+
+    public void ClearItems()
+    {
+        items.Clear();
     }
 
     protected virtual void OnDestroy()

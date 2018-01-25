@@ -321,6 +321,11 @@ public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
         return false;
     }
 
+    public SerializableDictionary<TKey, TValue> Clone()
+    {
+        return new SerializableDictionary<TKey, TValue>(this);
+    }
+
     private static class PrimeHelper
     {
         public static readonly int[] Primes = new int[]

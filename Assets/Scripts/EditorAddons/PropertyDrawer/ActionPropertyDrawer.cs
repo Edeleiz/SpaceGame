@@ -45,11 +45,9 @@ public class ActionPropertyDrawer : PropertyDrawer
                 _actionProperty.options = null;
                 return;
             }
-
-            _options = _action.GetOptions();
-
+            
             _actionProperty.action = _action;
-            _actionProperty.options = (ActionOptions)_options;
+            _options = _actionProperty.options;
 
             CheckOptions();
         }
@@ -119,7 +117,6 @@ public class ActionPropertyDrawer : PropertyDrawer
                                                  BindingFlags.Public))
         {
             _optionsDict[field.Name] = field.FieldType;
-            //Console.WriteLine("{0} = {1}", field.Name, field.GetValue(structValue));
         }
     }
 

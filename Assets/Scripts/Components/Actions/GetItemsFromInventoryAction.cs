@@ -5,13 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TestAction", menuName = "My Components/Actions/Test2", order = 2)]
 public class GetItemsFromInventoryAction : BaseAction
 {
-    public override bool Check(GameObject target)
+    public override bool Check(GameObject target, ActionOptions options)
     {
-        return true;
+        var targetInventory = target.GetComponent<Inventory>();
+        var ownerInventory = owner.GetComponent<Inventory>();
+        if (targetInventory != null && ownerInventory != null)
+            return true;
+        return false;
     }
 
-    public override void Apply(GameObject target)
+    public override void Apply(GameObject target, ActionOptions options)
     {
-        Debug.Log("Test Action!");
+        var targetInventory = target.GetComponent<Inventory>();
+        var ownerInventory = owner.GetComponent<Inventory>();
+        var items = ownerInventory.TakeItems();
+        targetInventory.AddItems(items);
     }
 }

@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2257bd84e62c4834185e3eda6fdbf7a7, type: 3}
-  m_Name: TestAction2
+  m_Name: GetItemsFromInventrory
   m_EditorClassIdentifier: 
   owner: {fileID: 0}

@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TestAction", menuName = "My Components/Actions/Test", order = 1)]
 public class TestAction : BaseAction
 {
-    public override bool Check(GameObject target)
+    public override bool Check(GameObject target, ActionOptions options)
     {
         return true;
     }
 
-    public override void Apply(GameObject target)
+    public override void Apply(GameObject target, ActionOptions options)
     {
         Debug.Log("Test Action!");
     }

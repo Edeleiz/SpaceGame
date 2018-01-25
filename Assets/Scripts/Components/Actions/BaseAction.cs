@@ -7,12 +7,12 @@ public class BaseAction : ScriptableObject
     [HideInInspector]
     public InteractiveObject owner;
 
-    public virtual bool Check(GameObject target)
+    public virtual bool Check(GameObject target, ActionOptions options)
     {
         return false;
     }
 
-    public virtual void Apply(GameObject target)
+    public virtual void Apply(GameObject target, ActionOptions options)
     {
         
     }

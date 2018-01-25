@@ -45,8 +45,8 @@ public class InteractiveObject : MonoBehaviour
         if (!action)
             return;
 
-        if (action.Check(target))
-            action.Apply(target);
+        if (action.Check(target, actionProperty.options))
+            action.Apply(target, actionProperty.options);
     }
 
     protected virtual void OnDestroy()

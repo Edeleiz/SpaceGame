@@ -7,17 +7,18 @@ public class TriggerController : MonoBehaviour
     [HideInInspector]
     public GameObject owner;
 
-    public BaseAction action;
+    public ActionProperty actionProperty;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (action && action.Check(collider.gameObject))
-            action.Apply(gameObject);
+        var action = actionProperty != null ? actionProperty.action : null;
+        if (action && action.Check(collider.gameObject, actionProperty.options))
+            action.Apply(gameObject, actionProperty.options);
     }
 
     protected virtual void OnDestroy()
     {
         owner = null;
-        action = null;
+        actionProperty = null;
     }
 }

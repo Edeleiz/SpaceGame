@@ -5,20 +5,37 @@ using UnityEngine;
 using System;
 using System.ComponentModel;
 
+[System.Serializable] public class ActionDicitonary : SerializableDictionary<string, string> { }
+[System.Serializable] public class ActionGameObjectDicitonary : SerializableDictionary<string, GameObject> { }
+
 [System.Serializable]
 public class ActionProperty
 {
-    [System.Serializable] public class ActionDicitonary : SerializableDictionary<string, string> { }
-    [System.Serializable] public class ActionGameObjectDicitonary : SerializableDictionary<string, GameObject> { }
-
     [SerializeField]
-    public BaseAction action;
+    private BaseAction _action = null;
+    public BaseAction action
+    {
+        get { return _action;  }
+        set
+        {
+            if (_action == value)
+                return;
 
-    private ActionOptions _options;
+            if (_action)
+                options = null;
+
+            _action = value;
+        }
+    }
+
+    [NonSerialized]
+    private ActionOptions _options = null;
     public ActionOptions options
     {
         get
         {
+            if ((_options == null || _options.GetType() == typeof(ActionOptions)) && action != null)
+                _options = action.GetOptions();
             if (Application.isEditor)
                 DeserializeOptions();
             return _options;
