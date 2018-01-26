@@ -32,7 +32,10 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(BaseItem item, int count)
     {
-        items[item] += count;
+        if (items.ContainsKey(item))
+            items[item] += count;
+        else
+            items[item] = count;
         _itemsList = null;
         return true;
     }
@@ -111,5 +114,10 @@ public class Inventory : MonoBehaviour
         if (_itemsList != null)
             _itemsList.Clear();
         _itemsList = null;
+    }
+
+    private void DebugMethod()
+    {
+        Debug.Log("debug");
     }
 }

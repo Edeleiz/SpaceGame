@@ -13,6 +13,9 @@ public class TestAction : BaseAction
     public override void Apply(GameObject target, ActionOptions options)
     {
         Debug.Log("Test Action!");
+        var testOptions = (TestOptions)options;
+        if (testOptions != null && testOptions.testObject != null)
+            Destroy(testOptions.testObject);
     }
 
     public override ActionOptions GetOptions()
@@ -24,12 +27,6 @@ public class TestAction : BaseAction
 [System.Serializable]
 class TestOptions : ActionOptions
 {
-    [SerializeField]
-    public int testInt;
-
-    [SerializeField]
-    public string testString;
-
     [SerializeField]
     public GameObject testObject;
 }
