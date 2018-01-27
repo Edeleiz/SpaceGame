@@ -35,3 +35,8 @@ sysinfo.txt
 Assets/UnityVS/Editor/SyntaxTree.Mono.Cecil.dll.meta
 Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll.meta
 Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll.meta
+
+# IDEA
+.idea
+Assets/Plugins/Editor/JetBrains.meta
+Assets/Plugins/Editor/JetBrains/
