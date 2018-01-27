@@ -9,7 +9,7 @@ public class BaseAction : ScriptableObject
 
     public virtual bool Check(GameObject target, ActionOptions options)
     {
-        return false;
+        return true;
     }
 
     public virtual void Apply(GameObject target, ActionOptions options)

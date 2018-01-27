@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
+    public int id;
 
 	// Use this for initialization
 	void Start ()
