@@ -66,7 +66,7 @@ public class Server: MonoBehaviour
     private IEnumerator Upload(System.Action<bool> callback, TreasureData data, string url)
     {
         var formData = new WWWForm();
-        formData.AddField("location", data.LocationName);
+        formData.AddField("locationName", data.LocationName);
         formData.AddField("x", data.X);
         formData.AddField("y", data.Y);
         formData.AddField("message", data.Message);

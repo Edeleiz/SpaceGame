@@ -38,8 +38,7 @@ public class SpicerGameManager : GameStateManager
         }
         else
         {
-            var scene = SceneManager.GetSceneAt(1);
-            SwitchScene(scene.name);
+            SwitchScene("StartScene", 0);
         }
     }
 
@@ -47,7 +46,7 @@ public class SpicerGameManager : GameStateManager
     {
         Debug.Log("received, " + data.LocationName);
         treasureData = data;
-        SwitchScene("MainScene", 0);
+        SwitchScene("StartScene", 0);
     }
 
     override protected void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)

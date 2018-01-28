@@ -23,12 +23,15 @@ public class StashObject : MonoBehaviour
             var position = this.gameObject.transform.position;
 
             if (SceneManager.GetActiveScene().name == treasureData.LocationName &&
-                position.x == treasureData.X &&
-                position.y == treasureData.Y)
+                (int)position.x == treasureData.X &&
+                (int)position.y == treasureData.Y)
             {
                 GetComponent<Inventory>().AddItem(stashItem);
                 hasItem = true;
+                return;
             }
+
+            hasItem = false;
         }
 	}
 	

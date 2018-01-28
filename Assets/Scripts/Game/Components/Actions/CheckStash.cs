@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[CreateAssetMenu(fileName = "CheckStash", menuName = "My Components/Actions/Check Stash", order = 2)]
 public class CheckStash : BaseAction
 {
     public override bool Check(GameObject target, ActionOptions options)
@@ -21,7 +23,17 @@ public class CheckStash : BaseAction
         }
         else
         {
-            Debug.Log("Put it!");
+            var scene = SceneManager.GetActiveScene();
+            var testData = new TreasureData();
+            testData.X = (int)owner.gameObject.transform.position.x;
+            testData.Y = (int)owner.gameObject.transform.position.y;
+            testData.Message = "Check near the lenin statue at the bushes";
+            testData.LocationName = scene.name;
+            Server.Instance.SendTreasureData(testData, isSuccess =>
+            {
+                if (isSuccess)
+                    Debug.Log("success!");
+            });
         }
     }
 }
