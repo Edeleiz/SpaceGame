@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -32,3 +33,4 @@ public class InspectorUtil
             { typeof(Rect), (rect, label, value) => EditorGUI.RectField(rect, new GUIContent(label), (Rect)value) },
         };
 }
+#endif

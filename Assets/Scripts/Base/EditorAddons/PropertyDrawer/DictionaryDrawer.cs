@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -181,3 +183,5 @@ public abstract class DictionaryDrawer<TK, TV> : PropertyDrawer
 
 [CustomPropertyDrawer(typeof(ItemsDicitonary))]
 public class ItemsDictionaryDrawer : DictionaryDrawer<BaseItem, int> { }
+
+#endif

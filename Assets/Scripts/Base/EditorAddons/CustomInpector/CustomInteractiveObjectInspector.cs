@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEngine;
 using UnityEditor;
  
 //[CustomEditor(typeof(InteractiveObject))]
@@ -21,3 +23,4 @@ public class CustomInteractiveObjectInspector : Editor
         //}
     }
 }
+#endif

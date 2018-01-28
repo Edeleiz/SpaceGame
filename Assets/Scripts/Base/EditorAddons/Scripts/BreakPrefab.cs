@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -67,3 +69,5 @@ public static class BreakPrefab
         }
     }
 }
+
+#endif
