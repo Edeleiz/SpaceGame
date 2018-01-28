@@ -8,6 +8,8 @@ public class BaseItem : ScriptableObject
     //Should be uniq name
     public string itemName;
 
+    public int id;
+
     public bool isStackable;
 
     public BaseItem Clone()

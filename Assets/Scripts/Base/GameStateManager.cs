@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
-    private static GameStateManager _instance;
+    protected static GameStateManager _instance;
     
     public static GameStateManager instance
     {
-        private set
+        protected set
         {
             if (_instance != null)
                 throw new System.Exception("Game State Manager is singleton!");
