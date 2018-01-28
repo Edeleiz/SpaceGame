@@ -18,4 +18,9 @@ public class PhoneCladmen : MonoBehaviour {
 	{
 		print("send message");
 	}
+	
+	public void StartGame()
+	{
+		print("send message");
+	}
 }
