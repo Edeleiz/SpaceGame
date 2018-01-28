@@ -27,7 +27,7 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector]
     public Vector2 playerRespawnPoint;
 
-    private int _spawnId;
+    protected int _spawnId;
 
     // Use this for initialization
     void Start ()
@@ -55,7 +55,7 @@ public class GameStateManager : MonoBehaviour
         return true;
     }
 
-    protected void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)
+    protected virtual void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)
     {
         SceneManager.MoveGameObjectToScene(this.gameObject, scene);
         SpawnPlayer(_spawnId);
@@ -74,7 +74,7 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    public bool SpawnPlayer(int spawnId = -1)
+    public GameObject SpawnPlayer(int spawnId = -1)
     {
         PlayerSpawn startPoint = null;
         if (spawnId < 0)
@@ -98,12 +98,11 @@ public class GameStateManager : MonoBehaviour
         {
             playerRespawnPoint = startPoint.transform.position;
             //startPoint.LevelStarted();
-            Instantiate(playerPrefab, playerRespawnPoint, playerPrefab.transform.rotation);
-            return true;
+            return Instantiate(playerPrefab, playerRespawnPoint, playerPrefab.transform.rotation);
         }
         else
         {
-            return false;
+            return null;
         }
     }
 }

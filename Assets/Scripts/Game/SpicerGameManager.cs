@@ -15,6 +15,8 @@ public class SpicerGameManager : GameStateManager
 
     public TreasureData treasureData;
 
+    public GameObject player;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -46,6 +48,14 @@ public class SpicerGameManager : GameStateManager
         Debug.Log("received, " + data.LocationName);
         treasureData = data;
         SwitchScene("MainScene", 0);
+    }
+
+    override protected void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)
+    {
+        SceneManager.MoveGameObjectToScene(this.gameObject, scene);
+        var player = SpawnPlayer(_spawnId);
+
+        this.player = player;
     }
 }
 
