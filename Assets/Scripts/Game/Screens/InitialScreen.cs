@@ -26,4 +26,18 @@ public class InitialScreen : MonoBehaviour
             gameManager.InitGameMode();
         }
 	}
+
+	public void TreasureHunterClick()
+	{
+		var gameManager = (SpicerGameManager)GameStateManager.instance;
+		gameManager.gameMode = GameMode.Junkie;
+		gameManager.InitGameMode();
+	}
+
+	public void StashCreatorClick()
+	{
+		var gameManager = (SpicerGameManager)GameStateManager.instance;
+		gameManager.gameMode = GameMode.Stasher;
+		gameManager.InitGameMode();
+	}
 }

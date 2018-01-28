@@ -17,6 +17,9 @@ public class SpicerGameManager : GameStateManager
 
     public GameObject player;
 
+    public bool IsLocationFound = false;
+    public bool IsStasherUIShow = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -55,6 +58,40 @@ public class SpicerGameManager : GameStateManager
         var player = SpawnPlayer(_spawnId);
 
         this.player = player;
+    }
+
+    public void Interact()
+    {
+        if (gameMode == GameMode.Junkie)
+        {
+            var x = (int)player.gameObject.transform.position.x;
+            var y = (int)player.gameObject.transform.position.y;
+            print("check coordinates " + x + " " + y);
+            if (treasureData.X == x && treasureData.Y == y)
+            {
+                IsLocationFound = true;
+            }
+        }
+
+        if (gameMode == GameMode.Stasher)
+        {
+            IsStasherUIShow = true;
+        }
+    }
+
+    public void SendLocation(string message)
+    {
+        var scene = SceneManager.GetActiveScene();
+        var testData = new TreasureData();
+        testData.X = (int)player.gameObject.transform.position.x;
+        testData.Y = (int)player.gameObject.transform.position.y;
+        testData.Message = message;
+        testData.LocationName = scene.name;
+        Server.Instance.SendTreasureData(testData, isSuccess =>
+        {
+            if (isSuccess)
+                Debug.Log("success!");
+        });
     }
 }
 

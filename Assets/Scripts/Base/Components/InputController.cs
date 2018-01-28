@@ -51,11 +51,16 @@ public class InputController : MonoBehaviour
 
     protected void UpdateInteractive()
     {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SpicerGameManager.instance.Interact();
+        }
+        
         if (!interactionController || !interactionController.interactionTarget)
             return;
 
-        if (Input.GetKeyUp(KeyCode.Space))
-            interactionController.interactionTarget.Interact(interactionController.gameObject);
+        
+//            interactionController.interactionTarget.Interact(interactionController.gameObject);
     }
 
     protected void dispose()

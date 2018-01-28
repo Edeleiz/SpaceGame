@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1063347133658384
 GameObject:
   m_ObjectHideFlags: 1
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 222354541148070788}
   - component: {fileID: 114552916796536434}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: TitleMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,8 @@ GameObject:
   - component: {fileID: 223679791733974496}
   - component: {fileID: 114453020651794868}
   - component: {fileID: 114693048093145562}
-  - component: {fileID: 114105195609361116}
+  - component: {fileID: 114541457253174114}
+  - component: {fileID: 114062767111043434}
   m_Layer: 5
   m_Name: uiCanvas
   m_TagString: Untagged
@@ -159,9 +160,8 @@ GameObject:
   - component: {fileID: 222402221797585412}
   - component: {fileID: 114030770062026130}
   - component: {fileID: 114025829018192742}
-  - component: {fileID: 114971576814948954}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SendButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1376485470760742
 GameObject:
   m_ObjectHideFlags: 1
@@ -268,7 +268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1539217815924478
 GameObject:
   m_ObjectHideFlags: 1
@@ -531,8 +531,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114971576814948954}
-        m_MethodName: SendMessageUI
+      - m_Target: {fileID: 114541457253174114}
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114105195609361116
+--- !u!114 &114062767111043434
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248203883918540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8443fd5fdd87a4ab714d19926cff91, type: 3}
+  m_Script: {fileID: 11500000, guid: 308587bb9fe56074587a895778dd3bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114190735185711126
@@ -843,6 +843,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114541457253174114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248203883918540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8ae1d4bf83c434d98ecfe695b7bb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114551677618803708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,12 +909,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ef913f6c427e9e74e830b52eb5855f2a, type: 3}
-    m_FontSize: 39
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 152
-    m_Alignment: 2
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1216,17 +1227,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114971576814948954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309922997543372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8ae1d4bf83c434d98ecfe695b7bb3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114985453163951790
 MonoBehaviour:
   m_ObjectHideFlags: 1
