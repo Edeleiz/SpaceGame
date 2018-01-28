@@ -55,7 +55,7 @@ public class GameStateManager : MonoBehaviour
         return true;
     }
 
-    private void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)
+    protected void OnSceneLoadComplete(Scene scene, LoadSceneMode sceneMode)
     {
         SceneManager.MoveGameObjectToScene(this.gameObject, scene);
         SpawnPlayer(_spawnId);

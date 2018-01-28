@@ -20,7 +20,7 @@ public class InitialScreen : MonoBehaviour
             gameManager.gameMode = GameMode.Stasher;
             gameManager.InitGameMode();
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             gameManager.gameMode = GameMode.Junkie;
             gameManager.InitGameMode();
