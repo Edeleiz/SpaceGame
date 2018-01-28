@@ -210,26 +210,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224449213575275710, guid: c2ebf2d946f70ba4b945963a36ecb29f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224015263117460442, guid: c2ebf2d946f70ba4b945963a36ecb29f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0000076293945
-      objectReference: {fileID: 0}
-    - target: {fileID: 224015263117460442, guid: c2ebf2d946f70ba4b945963a36ecb29f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224616804583896984, guid: c2ebf2d946f70ba4b945963a36ecb29f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ebf2d946f70ba4b945963a36ecb29f, type: 2}
   m_IsPrefabParent: 0
