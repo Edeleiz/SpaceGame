@@ -4,6 +4,12 @@ using UnityEngine.Networking;
 
 public class Server: MonoBehaviour
 {
+    public static Server Instance;
+    void Start()
+    {
+        Instance = this;
+    }
+    
     public void TestRequest()
     {
         LoadTreasureData(data =>
